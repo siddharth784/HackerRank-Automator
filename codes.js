@@ -1,47 +1,46 @@
 module.exports = {
     answers: [
         `
-       import java.io.*;
-import java.util.*;
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
 
-public class Main {
+using namespace std;
 
-    public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int m = scn.nextInt();
-        int[][] arr = new int[n][m];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                arr[i][j] = scn.nextInt();
-            }
+
+int main(){
+    int n;
+    cin >> n;
+    for(int a0 = 0; a0 < n; a0++){
+        int grade;
+        cin >> grade;
+        if (grade >= 38) {
+            int rem = grade % 5;
+            if (rem >= 3) grade += 5 - rem;
         }
-        
-        boolean [][] vis = new boolean[n][m];
-        
-        
-        floodfill(arr, 0, 0, "", vis);
+        cout << grade << endl;
     }
-
-    public static void floodfill(int[][] maze, int sr, int sc, String asf, boolean [][] vis) {
-        if(sr >= maze.length || sc >= maze[0].length || sr < 0 || sc < 0 || maze[sr][sc] == 1 || vis[sr][sc] == true){
-            return;
-        }
-        
-        if(sr == maze.length-1 && sc == maze[0].length-1){
-            System.out.println(asf);
-            return;
-        }
-        
-        vis[sr][sc] = true;
-        floodfill(maze, sr-1 , sc, asf + "t" , vis);
-        floodfill(maze, sr , sc-1, asf + "l" , vis);
-        floodfill(maze, sr+1 , sc, asf + "d" , vis);
-        floodfill(maze, sr , sc+1, asf + "r" , vis);
-        vis[sr][sc] = false;         
-    }
-}
-        `,
+    return 0;
+}`,
         `
 
 
